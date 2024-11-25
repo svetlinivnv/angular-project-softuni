@@ -1,0 +1,23 @@
+<header>
+  <div class="logo">
+    <a routerLink="home"><span>SHOP</span>IFY</a>
+  </div>
+  <nav>
+    <ul>
+      <a class="nav-link" routerLink="/catalog"><li>Каталог</li></a>
+      @if (!isLoggedIn) {
+      <a class="nav-link" routerLink="/login"><li>Логин</li></a>
+      <a class="nav-link" routerLink="/register"><li>Регистрация</li></a>
+      } @if (isLoggedIn) {
+      <a class="nav-link" routerLink="/profile"><li>Профил</li></a>
+      <a class="nav-link" (click)="logout()"><li>Изход</li></a>
+      <a routerLink="/cart">
+        <div class="shopping-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <p>2</p>
+        </div>
+      </a>
+      }
+    </ul>
+  </nav>
+</header>
