@@ -9,6 +9,7 @@
       <a class="nav-link" routerLink="/login"><li>Логин</li></a>
       <a class="nav-link" routerLink="/register"><li>Регистрация</li></a>
       } @if (isLoggedIn) {
+      <a class="nav-link" routerLink="/add-product"><li>Добави продукт</li></a>
       <a class="nav-link" routerLink="/profile"><li>Профил</li></a>
       <a class="nav-link" (click)="logout()"><li>Изход</li></a>
       <a routerLink="/cart">
