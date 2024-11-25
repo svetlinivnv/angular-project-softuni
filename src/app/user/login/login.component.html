@@ -1,0 +1,11 @@
+<div class="login-container">
+  <h2>Влезте в профила си</h2>
+  <form (click)="login($event)">
+    <input type="text" class="input-field" placeholder="Имейл" required />
+    <input type="password" class="input-field" placeholder="Парола" required />
+    <button type="submit" class="login-btn">Вход</button>
+  </form>
+  <div class="register-link">
+    <p>Нямате акаунт? <a routerLink="/register">Регистрирайте се</a></p>
+  </div>
+</div>

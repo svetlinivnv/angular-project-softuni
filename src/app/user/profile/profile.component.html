@@ -1,0 +1,62 @@
+<section class="profile-container">
+  <h1>Редактиране на профил</h1>
+  <form class="profile-form" action="update-profile.html" method="POST">
+    <!-- Профилна снимка -->
+    <div class="profile-picture-container">
+      <img src="https://via.placeholder.com/100" alt="Profile Picture" />
+    </div>
+
+    <!-- Име на потребителя -->
+    <div class="form-group">
+      <label for="username">Потребителско име</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Въведете потребителско име"
+        value="Потребител123"
+        required
+      />
+    </div>
+
+    <!-- Имейл -->
+    <div class="form-group">
+      <label for="email">Имейл</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Въведете имейл"
+        value="user@example.com"
+        required
+      />
+    </div>
+
+    <!-- Парола -->
+    <div class="form-group">
+      <label for="password">Парола</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Въведете нова парола"
+        required
+      />
+    </div>
+
+    <!-- Повторна парола -->
+    <div class="form-group">
+      <label for="confirm-password">Повторете паролата</label>
+      <input
+        type="password"
+        id="confirm-password"
+        name="confirm-password"
+        placeholder="Повторете паролата"
+        required
+      />
+    </div>
+
+    <!-- Бутон за актуализиране на профила -->
+    <button type="submit" class="update-btn">Актуализирай профила</button>
+  </form>
+</section>

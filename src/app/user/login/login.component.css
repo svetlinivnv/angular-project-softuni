@@ -1,0 +1,74 @@
+/* Стилове за формата */
+.login-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin: 150px auto;
+  }
+
+  .login-container h2 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .input-field {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .input-field:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  .login-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .login-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .forgot-password {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+
+  .register-link {
+    margin-top: 1rem;
+  }
+
+  .register-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .register-link a:hover {
+    text-decoration: underline;
+  }
