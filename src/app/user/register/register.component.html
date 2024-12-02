@@ -1,20 +1,83 @@
 <div class="register-container">
   <h2>Регистрация</h2>
-  <form action="register.html" method="POST">
+  <app-toast [errorCode]="errorCode" [duration]="3000"></app-toast>
+  <form class="register" #form="ngForm" (ngSubmit)="register(form)">
     <input
       type="text"
+      name="username"
       class="input-field"
       placeholder="Потребителско име"
+      ngModel
+      #inputUsername="ngModel"
       required
     />
-    <input type="email" class="input-field" placeholder="Имейл" required />
-    <input type="password" class="input-field" placeholder="Парола" required />
+
+    @if (inputUsername.touched && inputUsername.errors?.['required']) {
+    <p class="error">Въвеждането на потребителско име е задължително!</p>
+    }
+
+    <input
+      type="email"
+      name="email"
+      class="input-field"
+      placeholder="Имейл"
+      ngModel
+      #inputEmail="ngModel"
+      required
+      appEmail
+    />
+
+    @if (inputEmail.touched) { @if (inputEmail.errors?.['emailValidator']) {
+    <p class="error">Моля, въведете валиден имейл адрес!</p>
+    } @if (inputEmail.errors?.['required']) {
+    <p class="error">Имейл адресът е задължителен!</p>
+    } }
+
     <input
       type="password"
+      name="password"
+      id="password"
       class="input-field"
-      placeholder="Повтори парола"
+      placeholder="Парола"
+      ngModel
+      #inputPassword="ngModel"
+      minlength="6"
       required
     />
+
+    @if (inputPassword.touched) {
+    <!-- -->
+    @if (inputPassword.errors?.['required']) {
+    <p class="error">Паролата е задължителна!</p>
+    }
+    <!-- -->
+    @if (inputPassword.errors?.['minlength']) {
+    <p class="error">Паролата трябва да съдържа поне 6 символа.</p>
+    }
+    <!-- -->
+    }
+
+    <input
+      type="password"
+      name="rePassword"
+      id="rePassword"
+      class="input-field"
+      placeholder="Повтори парола"
+      ngModel
+      #inputRepeatPassword="ngModel"
+      minlength="6"
+      required
+    />
+
+    @if (inputRepeatPassword.touched) {
+    <!-- -->
+    @if (inputRepeatPassword.errors?.['required'] || inputPassword.value !==
+    inputRepeatPassword.value) {
+    <p class="error">Паролите не съвпадат!</p>
+    }
+    <!-- -->
+    }
+
     <button type="submit" class="register-btn">Регистрация</button>
   </form>
   <div class="login-link">

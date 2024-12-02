@@ -1,11 +1,40 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { FormsModule, NgForm } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { UserService } from '../user.service';
+import { ToastComponent } from '../../shared/toast/toast.component';
+import { EmailDirective } from '../../directives/email.directive';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule, ToastComponent, EmailDirective],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
-export class RegisterComponent {}
+export class RegisterComponent {
+  constructor(private userService: UserService, private router: Router) {}
+
+  errorCode: string | null = null;
+
+  register(form: NgForm) {
+    if (form.invalid) {
+      console.error('Invalid register form!');
+      return;
+    }
+
+    const { username, email, password, rePassword } = form.value;
+
+    this.userService.register(username, email, password).subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        this.errorCode = null;
+        setTimeout(() => {
+          this.errorCode = err.code;
+        });
+      },
+    });
+  }
+}
