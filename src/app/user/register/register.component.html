@@ -1,26 +1,26 @@
 <div class="register-container">
-  <h2>Регистрация</h2>
+  <h2>Register</h2>
   <app-toast [errorCode]="errorCode" [duration]="3000"></app-toast>
   <form class="register" #form="ngForm" (ngSubmit)="register(form)">
     <input
       type="text"
       name="username"
       class="input-field"
-      placeholder="Потребителско име"
+      placeholder="Username"
       ngModel
       #inputUsername="ngModel"
       required
     />
 
     @if (inputUsername.touched && inputUsername.errors?.['required']) {
-    <p class="error">Въвеждането на потребителско име е задължително!</p>
+    <p class="error">Username is required!</p>
     }
 
     <input
       type="email"
       name="email"
       class="input-field"
-      placeholder="Имейл"
+      placeholder="Email"
       ngModel
       #inputEmail="ngModel"
       required
@@ -28,9 +28,9 @@
     />
 
     @if (inputEmail.touched) { @if (inputEmail.errors?.['emailValidator']) {
-    <p class="error">Моля, въведете валиден имейл адрес!</p>
+    <p class="error">Please, enter a valid email address!</p>
     } @if (inputEmail.errors?.['required']) {
-    <p class="error">Имейл адресът е задължителен!</p>
+    <p class="error">Email address is required!</p>
     } }
 
     <input
@@ -38,7 +38,7 @@
       name="password"
       id="password"
       class="input-field"
-      placeholder="Парола"
+      placeholder="Password"
       ngModel
       #inputPassword="ngModel"
       minlength="6"
@@ -48,11 +48,11 @@
     @if (inputPassword.touched) {
     <!-- -->
     @if (inputPassword.errors?.['required']) {
-    <p class="error">Паролата е задължителна!</p>
+    <p class="error">Password is required!</p>
     }
     <!-- -->
     @if (inputPassword.errors?.['minlength']) {
-    <p class="error">Паролата трябва да съдържа поне 6 символа.</p>
+    <p class="error">Password must contain at least 6 characters!</p>
     }
     <!-- -->
     }
@@ -62,7 +62,7 @@
       name="rePassword"
       id="rePassword"
       class="input-field"
-      placeholder="Повтори парола"
+      placeholder="Confirm password"
       ngModel
       #inputRepeatPassword="ngModel"
       minlength="6"
@@ -73,14 +73,14 @@
     <!-- -->
     @if (inputRepeatPassword.errors?.['required'] || inputPassword.value !==
     inputRepeatPassword.value) {
-    <p class="error">Паролите не съвпадат!</p>
+    <p class="error">Confirm password does not match password!</p>
     }
     <!-- -->
     }
 
-    <button type="submit" class="register-btn">Регистрация</button>
+    <button type="submit" class="register-btn">Register</button>
   </form>
   <div class="login-link">
-    <p>Вече имате акаунт? <a routerLink="/login">Влезте тук</a></p>
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
   </div>
 </div>

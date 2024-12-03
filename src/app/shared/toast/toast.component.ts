@@ -25,14 +25,14 @@ export class ToastComponent implements OnChanges {
 
   mapErrorCodeToMessage(code: string): string {
     const errorMessages: { [key: string]: string } = {
-      'auth/invalid-email': 'Невалиден имейл адрес.',
-      'auth/email-already-in-use': 'Този имейл е вече използван.',
-      'auth/weak-password': 'Паролата трябва да съдържа поне 6 символа.',
-      'auth/missing-email': 'Моля, въведете имейл.',
-      'auth/operation-not-allowed': 'Регистрацията с имейл е забранена.',
-      'auth/user-not-found': 'Потребителят не е намерен.',
-      'auth/invalid-password': 'Невалидна парола.',
+      'auth/invalid-email': 'Invalid email address.',
+      'auth/email-already-in-use': 'This email has already been used.',
+      'auth/weak-password': 'Password must be at least 6 characters.',
+      'auth/missing-email': 'Please enter email.',
+      'auth/operation-not-allowed': 'This operation is not allowed.',
+      'auth/user-not-found': 'User not found.',
+      'auth/invalid-password': 'Invalid password.',
     };
-    return errorMessages[code] || 'Възникна неочаквана грешка.';
+    return errorMessages[code] || 'Unexpected server error has occurred.';
   }
 }

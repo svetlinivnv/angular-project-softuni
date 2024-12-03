@@ -1,62 +1,62 @@
 <section class="profile-container">
-  <h1>Редактиране на профил</h1>
+  <h1>Edit profile</h1>
   <form class="profile-form" action="update-profile.html" method="POST">
-    <!-- Профилна снимка -->
+    <!-- Profile image -->
     <div class="profile-picture-container">
       <img src="https://via.placeholder.com/100" alt="Profile Picture" />
     </div>
 
-    <!-- Име на потребителя -->
+    <!-- Username -->
     <div class="form-group">
-      <label for="username">Потребителско име</label>
+      <label for="username">Username</label>
       <input
         type="text"
         id="username"
         name="username"
-        placeholder="Въведете потребителско име"
-        value="Потребител123"
+        placeholder="Enter username"
+        value="User123"
         required
       />
     </div>
 
-    <!-- Имейл -->
+    <!-- Email -->
     <div class="form-group">
-      <label for="email">Имейл</label>
+      <label for="email">Email</label>
       <input
         type="email"
         id="email"
         name="email"
-        placeholder="Въведете имейл"
+        placeholder="Enter email"
         value="user@example.com"
         required
       />
     </div>
 
-    <!-- Парола -->
+    <!-- Password -->
     <div class="form-group">
-      <label for="password">Парола</label>
+      <label for="password">Password</label>
       <input
         type="password"
         id="password"
         name="password"
-        placeholder="Въведете нова парола"
+        placeholder="Enter password"
         required
       />
     </div>
 
-    <!-- Повторна парола -->
+    <!-- Confirm password -->
     <div class="form-group">
-      <label for="confirm-password">Повторете паролата</label>
+      <label for="confirm-password">Confirm password</label>
       <input
         type="password"
         id="confirm-password"
         name="confirm-password"
-        placeholder="Повторете паролата"
+        placeholder="Confirm password"
         required
       />
     </div>
 
-    <!-- Бутон за актуализиране на профила -->
-    <button type="submit" class="update-btn">Актуализирай профила</button>
+    <!-- Update profile -->
+    <button type="submit" class="update-btn">Update profile</button>
   </form>
 </section>

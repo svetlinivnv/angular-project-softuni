@@ -4,14 +4,14 @@
   </div>
   <nav>
     <ul>
-      <a class="nav-link" routerLink="/catalog"><li>Каталог</li></a>
+      <a class="nav-link" routerLink="/catalog"><li>Catalog</li></a>
       @if (!isLoggedIn) {
-      <a class="nav-link" routerLink="/login"><li>Логин</li></a>
-      <a class="nav-link" routerLink="/register"><li>Регистрация</li></a>
+      <a class="nav-link" routerLink="/login"><li>Login</li></a>
+      <a class="nav-link" routerLink="/register"><li>Register</li></a>
       } @if (isLoggedIn) {
-      <a class="nav-link" routerLink="/add-product"><li>Добави продукт</li></a>
-      <a class="nav-link" routerLink="/profile"><li>Профил</li></a>
-      <a class="nav-link" (click)="logout()"><li>Изход</li></a>
+      <a class="nav-link" routerLink="/add-product"><li>Add product</li></a>
+      <a class="nav-link" routerLink="/profile"><li>Profile</li></a>
+      <a class="nav-link" (click)="logout()"><li>Logout</li></a>
       <a routerLink="/cart">
         <div class="shopping-cart">
           <i class="fa-solid fa-cart-shopping"></i>
