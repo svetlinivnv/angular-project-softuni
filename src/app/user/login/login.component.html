@@ -1,8 +1,42 @@
 <div class="login-container">
   <h2>Login to your profile</h2>
-  <form (click)="login($event)">
-    <input type="text" class="input-field" placeholder="Email" required />
-    <input type="password" class="input-field" placeholder="Password" required />
+  <app-toast [errorCode]="errorCode" [duration]="3000"></app-toast>
+  <form class="login" #form="ngForm" (ngSubmit)="login(form)">
+    <input
+      type="text"
+      name="email"
+      class="input-field"
+      placeholder="Email"
+      ngModel
+      #inputEmail="ngModel"
+      minlength="6"
+      required
+    />
+
+    @if (inputEmail.touched && inputEmail.errors?.['required']) {
+    <p class="error">Email is required!</p>
+    }
+
+    <input
+      type="password"
+      name="password"
+      class="input-field"
+      placeholder="Password"
+      ngModel
+      #inputPassword="ngModel"
+      required
+    />
+
+    @if (inputPassword.touched && inputPassword.errors?.['required']) {
+    <p class="error">Password is required!</p>
+    }
+
+    <!-- -->
+    @if (inputPassword.errors?.['minlength']) {
+    <p class="error">Password must contain at least 6 characters!</p>
+    }
+    <!-- -->
+
     <button type="submit" class="login-btn">Login</button>
   </form>
   <div class="register-link">

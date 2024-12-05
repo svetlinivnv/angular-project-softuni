@@ -26,7 +26,7 @@ export class RegisterComponent {
     const { username, email, password } = form.value;
 
     this.userService.register(username, email, password).subscribe({
-      next: () => {
+      next: (response) => {
         this.router.navigate(['/']);
       },
       error: (err) => {

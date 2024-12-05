@@ -78,7 +78,9 @@
     <!-- -->
     }
 
-    <button type="submit" class="register-btn">Register</button>
+    <button [disabled]="form.invalid" type="submit" class="register-btn">
+      Register
+    </button>
   </form>
   <div class="login-link">
     <p>Already have an account? <a routerLink="/login">Login</a></p>
