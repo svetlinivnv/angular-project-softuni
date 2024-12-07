@@ -22,7 +22,19 @@ export class CatalogComponent implements OnInit {
   constructor(private router: Router, private productService: ProductService) {}
   private firestore = inject(Firestore);
 
-  userId: string | null = JSON.parse(localStorage.getItem('user') || '').uid;
+  userId: string | null = (() => {
+    const user = localStorage.getItem('user');
+    if (user) {
+      try {
+        return JSON.parse(user).uid;
+      } catch (error) {
+        console.error('Failed to parse user data from localStorage:', error);
+        return null;
+      }
+    }
+    return null;
+  })();
+
   products: any[] = [];
 
   async ngOnInit(): Promise<any> {
