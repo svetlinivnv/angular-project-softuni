@@ -7,6 +7,7 @@ export interface UserDocument {
   uid: string;
   email: string;
   username: string;
-  profileImgUrl: string | null;
+  photoUrl: string | null;
+  phoneNumber: string | null;
   createdAt: string;
 }

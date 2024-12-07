@@ -1,5 +1,9 @@
-@if (errorMessage) {
+@if (message && errorCode !== 'success') {
 <div class="toast">
-  <p>{{ errorMessage }}</p>
+  <p>{{ message }}</p>
+</div>
+} @if (errorCode === 'success') {
+<div class="toast success">
+  <p>Profile successfully updated!</p>
 </div>
 }

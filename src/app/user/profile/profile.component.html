@@ -1,12 +1,10 @@
 <section class="profile-container">
   <h1>Edit profile</h1>
-  <form class="profile-form" action="update-profile.html" method="POST">
-    <!-- Profile image -->
-    <div class="profile-picture-container">
-      <img src="https://via.placeholder.com/100" alt="Profile Picture" />
+  <app-toast [errorCode]="errorCode" [duration]="3000"></app-toast>
+  <form #form="ngForm" class="profile-form" (ngSubmit)="updateProfile(form)">
+    <div class="profile-img-container">
+      <i class="fa-solid fa-user"></i>
     </div>
-
-    <!-- Username -->
     <div class="form-group">
       <label for="username">Username</label>
       <input
@@ -14,12 +12,11 @@
         id="username"
         name="username"
         placeholder="Enter username"
-        value="User123"
+        [(ngModel)]="user.username"
         required
       />
     </div>
 
-    <!-- Email -->
     <div class="form-group">
       <label for="email">Email</label>
       <input
@@ -27,12 +24,12 @@
         id="email"
         name="email"
         placeholder="Enter email"
-        value="user@example.com"
+        [(ngModel)]="user.email"
+        readonly
         required
       />
     </div>
 
-    <!-- Password -->
     <div class="form-group">
       <label for="password">Password</label>
       <input
@@ -40,23 +37,23 @@
         id="password"
         name="password"
         placeholder="Enter password"
+        [(ngModel)]="user.password"
         required
       />
     </div>
 
-    <!-- Confirm password -->
     <div class="form-group">
-      <label for="confirm-password">Confirm password</label>
+      <label for="confirmPassword">Confirm password</label>
       <input
         type="password"
-        id="confirm-password"
-        name="confirm-password"
+        id="confirmPassword"
+        name="confirmPassword"
         placeholder="Confirm password"
+        [(ngModel)]="user.confirmPassword"
         required
       />
     </div>
 
-    <!-- Update profile -->
     <button type="submit" class="update-btn">Update profile</button>
   </form>
 </section>
