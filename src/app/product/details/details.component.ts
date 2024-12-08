@@ -32,6 +32,9 @@ export class DetailsComponent implements OnInit {
       this.productId = params['id'];
     });
     this.productDetails = await this.productService.getDetails(this.productId);
+    if (!this.productDetails) {
+      this.router.navigate(['/404']);
+    }
   }
 
   async addToCart(productId: string) {

@@ -12,7 +12,7 @@
   </div>
   } @if(cart?.products?.length > 0) {
   <div class="cart-total">
-    Total sum: <span id="total-price"> {{ totalSum.toFixed(2) }} lv.</span>
+    <span id="total-price"> {{ "Total: " + totalSum.toFixed(2) }} lv.</span>
   </div>
   <button class="checkout-btn">Checkout</button>
   } @else {

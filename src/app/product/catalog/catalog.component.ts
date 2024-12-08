@@ -33,10 +33,6 @@ export class CatalogComponent implements OnInit {
     this.products = await this.productService.getProducts(this.userId);
   }
 
-  getProductDetails(productId: string) {
-    this.productService.getDetails(productId);
-  }
-
   async addToCart(productId: string) {
     await this.productService.addToCart(productId);
     this.router.navigate(['cart']);
