@@ -3,7 +3,7 @@ import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './user/register/register.component';
 import { CatalogComponent } from './product/catalog/catalog.component';
-import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './user/cart/cart.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { DetailsComponent } from './product/details/details.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
@@ -22,9 +22,20 @@ export const routes: Routes = [
   },
   { path: 'catalog', component: CatalogComponent },
   { path: 'catalog/:id', component: DetailsComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'profile', component: ProfileComponent },
-  // User routing start
+  {
+    path: 'cart',
+    loadComponent: () =>
+      import('./user/cart/cart.component').then((c) => c.CartComponent),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile',
+    loadComponent: () =>
+      import('./user/profile/profile.component').then(
+        (c) => c.ProfileComponent
+      ),
+    canActivate: [AuthGuard],
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '404', component: NotFoundComponent },

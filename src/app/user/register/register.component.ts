@@ -19,7 +19,10 @@ export class RegisterComponent {
 
   register(form: NgForm) {
     if (form.invalid) {
-      console.error('Invalid register form!');
+      this.errorCode = null;
+      setTimeout(() => {
+        this.errorCode = 'Please, fill in register data!';
+      });
       return;
     }
 

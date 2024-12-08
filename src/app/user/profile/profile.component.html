@@ -13,8 +13,12 @@
         name="username"
         placeholder="Enter username"
         [(ngModel)]="user.username"
+        #inputUsername="ngModel"
         required
       />
+      @if(inputUsername.touched && inputUsername.errors?.['required']) {
+      <p class="error">Username is required!</p>
+      }
     </div>
 
     <div class="form-group">
@@ -25,9 +29,16 @@
         name="email"
         placeholder="Enter email"
         [(ngModel)]="user.email"
+        #inputEmail="ngModel"
         readonly
         required
+        appEmail
       />
+      @if (inputEmail.touched) { @if (inputEmail.errors?.['emailValidator']) {
+      <p class="error">Please, enter a valid email address!</p>
+      } @if (inputEmail.errors?.['required']) {
+      <p class="error">Email address is required!</p>
+      } }
     </div>
 
     <div class="form-group">
@@ -38,8 +49,21 @@
         name="password"
         placeholder="Enter password"
         [(ngModel)]="user.password"
-        required
+        minlength="6"
+        #inputPassword="ngModel"
       />
+
+      @if (inputPassword.touched) {
+      <!-- -->
+      @if (inputPassword.errors?.['required']) {
+      <p class="error">Password is required!</p>
+      }
+      <!-- -->
+      @if (inputPassword.errors?.['minlength']) {
+      <p class="error">Password must contain at least 6 characters!</p>
+      }
+      <!-- -->
+      }
     </div>
 
     <div class="form-group">
@@ -50,8 +74,18 @@
         name="confirmPassword"
         placeholder="Confirm password"
         [(ngModel)]="user.confirmPassword"
-        required
+        #inputRepeatPassword="ngModel"
       />
+
+      <!-- -->
+      @if (inputRepeatPassword.touched) {
+      <!-- -->
+      @if (inputPassword.value !== inputRepeatPassword.value) {
+      <p class="error">Confirm password does not match password!</p>
+      }
+      <!-- -->
+      }
+      <!-- -->
     </div>
 
     <button type="submit" class="update-btn">Update profile</button>

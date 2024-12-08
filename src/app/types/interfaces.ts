@@ -1,3 +1,5 @@
+import { Timestamp } from '@angular/fire/firestore';
+
 export interface ProductInterface {
   name: string;
   description: string;
@@ -5,4 +7,19 @@ export interface ProductInterface {
   imageUrl: string;
   createdBy: string;
   productId: string;
+  createdAt?: Timestamp;
+}
+
+export interface UserInterface {
+  email: string;
+  username: string;
+}
+
+export interface UserDocument {
+  uid: string;
+  email: string;
+  username: string;
+  photoUrl: string | null;
+  phoneNumber: string | null;
+  createdAt: string;
 }

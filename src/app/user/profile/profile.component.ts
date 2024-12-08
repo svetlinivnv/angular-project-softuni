@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastComponent } from '../../shared/toast/toast.component';
-import { logEvent } from '@angular/fire/analytics';
+import { EmailDirective } from '../../directives/email.directive';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [FormsModule, ToastComponent],
+  imports: [FormsModule, ToastComponent, EmailDirective],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
   user: any;
   newPassword: string = '';
   confirmPassword: string = '';
@@ -22,14 +22,9 @@ export class ProfileComponent implements OnInit {
     this.user = this.userService.getSession();
   }
 
-  ngOnInit(): void {
-    console.log(this.user);
-  }
-
   updateProfile(form: NgForm): void {
     this.newPassword = form.value.password;
     this.confirmPassword = form.value.confirmPassword;
-    console.log(this.newPassword, this.confirmPassword);
 
     if (this.newPassword !== this.confirmPassword) {
       this.errorCode = 'Confirm password does not match password!';

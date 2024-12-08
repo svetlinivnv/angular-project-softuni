@@ -1,0 +1,22 @@
+<section class="cart-container">
+  @for (product of cart.products; track $index) {
+  <div class="cart-item">
+    <a class="delete" (click)="removeProduct(product.productId)"
+      ><i class="fa-regular fa-trash-can"></i
+    ></a>
+    <img [src]="product.imageUrl" alt="Product" />
+    <div class="cart-item-details">
+      <div class="cart-item-name">{{ product.name }}</div>
+      <div class="cart-item-price">Price: {{ product.price }} lv.</div>
+    </div>
+  </div>
+  } @if(cart?.products?.length > 0) {
+  <div class="cart-total">
+    Total sum: <span id="total-price"> {{ totalSum.toFixed(2) }} lv.</span>
+  </div>
+  <button class="checkout-btn">Checkout</button>
+  } @else {
+  <p class="cart-empty">Your shopping cart is empty!</p>
+  <button routerLink="/catalog" class="checkout-btn">Back to Catalog</button>
+  }
+</section>

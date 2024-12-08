@@ -8,19 +8,17 @@ import { Component, Input, OnChanges } from '@angular/core';
   styleUrls: ['./toast.component.css'],
 })
 export class ToastComponent implements OnChanges {
-  message: string | null = null; // Combined error and success message into one variable
+  message: string | null = null;
   @Input() errorCode: string | null = null;
   @Input() duration: number = 3000;
 
   ngOnChanges(): void {
-    // If there is an error code, map it to the corresponding error message
     if (this.errorCode) {
       this.message = this.mapErrorCodeToMessage(this.errorCode);
     } else if (this.errorCode === 'success') {
-      this.message = 'Profile successfully updated!'; // Default success message
+      this.message = 'Profile successfully updated!';
     }
 
-    // Reset the message after the duration
     setTimeout(() => {
       this.message = null;
     }, this.duration);
@@ -40,6 +38,9 @@ export class ToastComponent implements OnChanges {
         'Changing password requires recent login. Please re-login to change it.',
       'Confirm password does not match password!':
         'Confirm password does not match password!',
+      'Please, fill in product data!': 'Please, fill in product data!',
+      'Please, fill in login data!': 'Please, fill in login data!',
+      'Please, fill in register data!': 'Please, fill in register data!',
     };
 
     return errorMessages[code] || 'Unexpected server error has occurred.';

@@ -4,6 +4,7 @@
   </div>
   <nav>
     <ul>
+      <a class="nav-link" routerLink="/home"><li>Home</li></a>
       <a class="nav-link" routerLink="/catalog"><li>Catalog</li></a>
       @if (!isLoggedIn) {
       <a class="nav-link" routerLink="/login"><li>Login</li></a>
@@ -12,10 +13,9 @@
       <a class="nav-link" routerLink="/add-product"><li>Add product</li></a>
       <a class="nav-link" routerLink="/profile"><li>Profile</li></a>
       <a class="nav-link" (click)="logout()"><li>Logout</li></a>
-      <a routerLink="/cart">
+      <a routerLink="/cart" class="cart-link">
         <div class="shopping-cart">
           <i class="fa-solid fa-cart-shopping"></i>
-          <p>2</p>
         </div>
       </a>
       }

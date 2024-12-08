@@ -1,28 +1,24 @@
-<section class="welcome-section">
-  <h1>Welcome to <span>SHOP</span>IFY</h1>
-</section>
+<section class="container">
+  <section class="welcome-section">
+    <h1>Welcome to <span>SHOP</span>IFY</h1>
+    <p>Check out our latest items below!</p>
+  </section>
 
-<!-- Popular products -->
-<section class="featured-products">
-  <div class="product">
-    <img src="https://via.placeholder.com/250x200" alt="Продукт 1" />
-    <h3>Product 1</h3>
-    <p>Product with high quality for all occasions.</p>
-    <p class="price">19.99 lv.</p>
-    <button>Add to cart</button>
-  </div>
-  <div class="product">
-    <img src="https://via.placeholder.com/250x200" alt="Продукт 2" />
-    <h3>Product 2</h3>
-    <p>Stylish and convenient for everyday use.</p>
-    <p class="price">29.99 lv.</p>
-    <button>Add to cart</button>
-  </div>
-  <div class="product">
-    <img src="https://via.placeholder.com/250x200" alt="Продукт 3" />
-    <h3>Product 3</h3>
-    <p>Perfect for special occasions</p>
-    <p class="price">39.99 lv.</p>
-    <button>Add to cart</button>
-  </div>
+  <section class="featured-products">
+    @for (product of products; track $index) {
+    <div class="product">
+      <div>
+        <img [src]="product.imageUrl" alt="Product" />
+        <a [routerLink]="['/catalog', product.productId]"
+          ><h3>{{ product.name }}</h3></a
+        >
+      </div>
+      <div>
+        <p>{{ product.description | limitEllipsis : 100 }}</p>
+        <p class="price">{{ product.price }} lv.</p>
+        <button (click)="addToCart(product.productId)">Add to cart</button>
+      </div>
+    </div>
+    }
+  </section>
 </section>

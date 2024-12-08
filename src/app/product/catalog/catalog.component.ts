@@ -1,13 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { set } from '@angular/fire/database';
-import {
-  collection,
-  deleteDoc,
-  doc,
-  Firestore,
-  getDoc,
-  getDocs,
-} from '@angular/fire/firestore';
+import { deleteDoc, doc, Firestore } from '@angular/fire/firestore';
 import { Router, RouterLink } from '@angular/router';
 import { ProductService } from '../product.service';
 
@@ -28,7 +20,7 @@ export class CatalogComponent implements OnInit {
       try {
         return JSON.parse(user).uid;
       } catch (error) {
-        console.error('Failed to parse user data from localStorage:', error);
+        console.error(error);
         return null;
       }
     }
@@ -37,21 +29,17 @@ export class CatalogComponent implements OnInit {
 
   products: any[] = [];
 
-  async ngOnInit(): Promise<any> {
-    this.products = [];
-    const docSnap = await getDocs(collection(this.firestore, 'products'));
-    docSnap.forEach((doc) => {
-      let isOwn: boolean = false;
-      if (doc.data()['createdBy'] === this.userId) {
-        isOwn = true;
-      }
-      this.products.push({ ...doc.data(), isOwn });
-    });
-    console.log(this.products);
+  async ngOnInit(): Promise<void> {
+    this.products = await this.productService.getProducts(this.userId);
   }
 
   getProductDetails(productId: string) {
     this.productService.getDetails(productId);
+  }
+
+  async addToCart(productId: string) {
+    await this.productService.addToCart(productId);
+    this.router.navigate(['cart']);
   }
 
   async deleteProduct(id: string) {
@@ -59,7 +47,7 @@ export class CatalogComponent implements OnInit {
       'Are you sure you want to delete this product?'
     );
     if (confirmed) {
-      await deleteDoc(doc(this.firestore, 'products', id));
+      await this.productService.deleteProduct(id);
       this.ngOnInit();
     }
   }

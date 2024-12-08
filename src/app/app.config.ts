@@ -22,6 +22,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()), // Add Firestore support
+    provideFirestore(() => getFirestore()),
   ],
 };

@@ -27,11 +27,17 @@
       appEmail
     />
 
-    @if (inputEmail.touched) { @if (inputEmail.errors?.['emailValidator']) {
+    @if (inputEmail.touched) {
+    <!---->
+    @if (inputEmail.errors?.['emailValidator']) {
     <p class="error">Please, enter a valid email address!</p>
-    } @if (inputEmail.errors?.['required']) {
+    }
+    <!---->
+    @if (inputEmail.errors?.['required']) {
     <p class="error">Email address is required!</p>
-    } }
+    }
+    <!---->
+    }
 
     <input
       type="password"
@@ -78,9 +84,7 @@
     <!-- -->
     }
 
-    <button [disabled]="form.invalid" type="submit" class="register-btn">
-      Register
-    </button>
+    <button type="submit" class="register-btn">Register</button>
   </form>
   <div class="login-link">
     <p>Already have an account? <a routerLink="/login">Login</a></p>

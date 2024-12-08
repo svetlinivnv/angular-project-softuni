@@ -12,6 +12,8 @@
     </p>
     <p class="product-price">Price: {{ productDetails.price }} lv.</p>
     <div class="quantity-selector"></div>
-    <button class="add-to-cart-btn">Add to cart</button>
+    <button class="add-to-cart-btn" (click)="addToCart(productId)">
+      Add to cart
+    </button>
   </div>
 </div>

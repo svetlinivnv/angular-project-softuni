@@ -11,10 +11,15 @@
       #inputEmail="ngModel"
       minlength="6"
       required
+      appEmail
     />
 
     @if (inputEmail.touched && inputEmail.errors?.['required']) {
     <p class="error">Email is required!</p>
+    }
+    <!---->
+    @if (inputEmail.touched && inputEmail.errors?.['emailValidator']) {
+    <p class="error">Please, enter a valid email address!</p>
     }
 
     <input
@@ -30,7 +35,6 @@
     @if (inputPassword.touched && inputPassword.errors?.['required']) {
     <p class="error">Password is required!</p>
     }
-
     <!-- -->
     @if (inputPassword.errors?.['minlength']) {
     <p class="error">Password must contain at least 6 characters!</p>

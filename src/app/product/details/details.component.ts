@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductInterface } from '../../types/interfaces';
 
 @Component({
@@ -23,7 +23,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   async ngOnInit(): Promise<any> {
@@ -31,6 +32,10 @@ export class DetailsComponent implements OnInit {
       this.productId = params['id'];
     });
     this.productDetails = await this.productService.getDetails(this.productId);
-    console.log(this.productDetails);
+  }
+
+  async addToCart(productId: string) {
+    await this.productService.addToCart(productId);
+    this.router.navigate(['cart']);
   }
 }

@@ -12,7 +12,9 @@
         ><h3 class="product-title">{{ product.name }}</h3></a
       >
       <p class="product-price">Price: {{ product.price }} lv.</p>
-      <button class="add-to-cart-btn">Add to cart</button>
+      <button class="add-to-cart-btn" (click)="addToCart(product.productId)">
+        Add to cart
+      </button>
     </div>
   </div>
   }

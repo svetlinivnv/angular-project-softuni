@@ -1,5 +1,6 @@
 <div class="add-product-form">
   <h1>Add new product</h1>
+  <app-toast [errorCode]="errorCode" [duration]="3000"></app-toast>
   <form #form="ngForm" (ngSubmit)="createProduct(form)">
     <label for="productName">Product name:</label>
     <input
@@ -12,6 +13,11 @@
       minlength="5"
       required
     />
+    @if (inputProductName.touched && inputProductName.errors?.['required']) {
+    <p class="error">Product name is required!</p>
+    } @if (inputProductName.touched && inputProductName.errors?.['minlength']) {
+    <p class="error">Product name must be at least 5 characters!</p>
+    }
 
     <label for="productDescription">Product description:</label>
     <textarea
@@ -24,6 +30,13 @@
       minlength="10"
       required
     ></textarea>
+    @if (inputProductDescription.touched &&
+    inputProductDescription.errors?.['required']) {
+    <p class="error">Product name is required!</p>
+    } @if (inputProductDescription.touched &&
+    inputProductDescription.errors?.['minlength']) {
+    <p class="error">Product name must be at least 10 characters!</p>
+    }
 
     <label for="productPrice">Price (lv.):</label>
     <input
@@ -37,6 +50,9 @@
       #inputProductPrice="ngModel"
       required
     />
+    @if (inputProductPrice.touched && inputProductPrice.errors?.['required']) {
+    <p class="error">Product price is required!</p>
+    }
 
     <label for="productImage">Product image (URL)</label>
     <input
@@ -48,6 +64,9 @@
       #imageUrlInput="ngModel"
       required
     />
+    @if (imageUrlInput.touched && imageUrlInput.errors?.['required']) {
+    <p class="error">Product image URL is required!</p>
+    }
 
     <button class="submit-btn">Add product</button>
   </form>
