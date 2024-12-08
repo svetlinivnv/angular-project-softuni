@@ -1,5 +1,8 @@
 # AngularProjectSoftuni
 
+Softuni Angular 18 exam task
+Server initizalization is not needed as project implements Firebase. In order to run it just clone the repository, install node modules (npm install) & run the application by executing ng serve --open command in terminal.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
 
 ## Development server
