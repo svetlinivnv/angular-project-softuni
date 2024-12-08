@@ -3,7 +3,17 @@
 Softuni Angular 18 exam task
 Server initizalization is not needed as project implements Firebase. In order to run it just clone the repository, install node modules (npm install) & run the application by executing ng serve --open command in terminal.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+Project includes:
+- User registration
+- User login
+- User profile with edit capabilities
+- Toast API error notifications
+- Form error handling
+- Create product
+- Delete product (if owned by the logged-in user)
+- On home page - last 5 added products are displayed
+- Users can add products to their shopping carts (each user has separate shopping cart). Products can be removed from shopping cart.
+
 
 ## Development server
 
