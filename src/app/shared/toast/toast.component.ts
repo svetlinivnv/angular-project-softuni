@@ -12,7 +12,7 @@ export class ToastComponent implements OnChanges {
   @Input() errorCode: string | null = null;
   @Input() duration: number = 3000;
 
-  ngOnChanges(): void {
+  ngOnChanges() {
     if (this.errorCode) {
       this.message = this.mapErrorCodeToMessage(this.errorCode);
     } else if (this.errorCode === 'success') {

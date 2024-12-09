@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { inject } from '@angular/core';
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
+import { ProductInterface } from '../../types/interfaces';
 
 @Component({
   selector: 'app-cart',
@@ -23,14 +24,14 @@ export class CartComponent implements OnInit {
     }
   }
 
-  async getCart(userId: string): Promise<void> {
+  async getCart(userId: string) {
     try {
       const cartDocRef = doc(this.firestore, 'carts', userId);
       const cartSnap = await getDoc(cartDocRef);
 
       if (cartSnap.exists()) {
         this.cart = cartSnap.data();
-        this.cart.products.forEach((product: any) => {
+        this.cart.products.forEach((product: ProductInterface) => {
           this.totalSum += product.price;
         });
       }
@@ -39,7 +40,7 @@ export class CartComponent implements OnInit {
     }
   }
 
-  async removeProduct(productId: string): Promise<void> {
+  async removeProduct(productId: string) {
     const confirmed = window.confirm(
       'Are you sure you want to remove this product from your shopping cart?'
     );

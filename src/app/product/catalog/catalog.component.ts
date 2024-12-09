@@ -1,5 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { deleteDoc, doc, Firestore } from '@angular/fire/firestore';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ProductService } from '../product.service';
 
@@ -12,7 +11,6 @@ import { ProductService } from '../product.service';
 })
 export class CatalogComponent implements OnInit {
   constructor(private router: Router, private productService: ProductService) {}
-  private firestore = inject(Firestore);
 
   userId: string | null = (() => {
     const user = localStorage.getItem('user');
@@ -29,7 +27,7 @@ export class CatalogComponent implements OnInit {
 
   products: any[] = [];
 
-  async ngOnInit(): Promise<void> {
+  async ngOnInit() {
     this.products = await this.productService.getProducts(this.userId);
   }
 

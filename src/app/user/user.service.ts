@@ -22,7 +22,7 @@ export class UserService {
   firebaseAuth = inject(Auth);
   private firestore = inject(Firestore);
 
-  register(username: string, email: string, password: string): Observable<any> {
+  register(username: string, email: string, password: string) {
     const promise = createUserWithEmailAndPassword(
       this.firebaseAuth,
       email,
@@ -52,7 +52,7 @@ export class UserService {
     return from(promise);
   }
 
-  login(email: string, password: string): Observable<any> {
+  login(email: string, password: string) {
     const promise = signInWithEmailAndPassword(
       this.firebaseAuth,
       email,
@@ -81,7 +81,7 @@ export class UserService {
     return data ? JSON.parse(data) : null;
   }
 
-  logout(): Observable<void> {
+  logout() {
     const promise = this.firebaseAuth.signOut().then(() => {
       localStorage.removeItem('user');
     });
@@ -89,7 +89,7 @@ export class UserService {
     return from(promise);
   }
 
-  updateUser(updatedUser: any): Observable<any> {
+  updateUser(updatedUser: any) {
     const auth = getAuth();
     const user = auth.currentUser;
 

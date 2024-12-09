@@ -22,7 +22,7 @@ export class ProfileComponent {
     this.user = this.userService.getSession();
   }
 
-  updateProfile(form: NgForm): void {
+  updateProfile(form: NgForm) {
     this.newPassword = form.value.password;
     this.confirmPassword = form.value.confirmPassword;
 

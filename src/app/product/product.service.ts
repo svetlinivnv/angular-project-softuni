@@ -75,7 +75,7 @@ export class ProductService {
     }
   }
 
-  async getProducts(userId: string | null): Promise<any[]> {
+  async getProducts(userId: string | null) {
     try {
       const docSnap = await getDocs(collection(this.firestore, 'products'));
       const products = docSnap.docs.map((doc) => {
@@ -93,7 +93,7 @@ export class ProductService {
     }
   }
 
-  async getLastAddedProducts(productsToGet: number = 5): Promise<any[]> {
+  async getLastAddedProducts(productsToGet: number = 5) {
     try {
       const productsRef = collection(this.firestore, 'products');
       const q = query(
