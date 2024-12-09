@@ -10,11 +10,6 @@ export interface ProductInterface {
   createdAt?: Timestamp;
 }
 
-export interface UserInterface {
-  email: string;
-  username: string;
-}
-
 export interface UserDocument {
   uid: string;
   email: string;
