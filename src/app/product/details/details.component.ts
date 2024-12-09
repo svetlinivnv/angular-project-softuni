@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductInterface } from '../../types/interfaces';
+import { DocumentData } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-details',
@@ -12,7 +13,7 @@ import { ProductInterface } from '../../types/interfaces';
 })
 export class DetailsComponent implements OnInit {
   productId: string = '';
-  productDetails: ProductInterface = {
+  productDetails: ProductInterface | undefined = {
     name: '',
     description: '',
     createdBy: '',
@@ -27,7 +28,7 @@ export class DetailsComponent implements OnInit {
     private router: Router
   ) {}
 
-  async ngOnInit(): Promise<any> {
+  async ngOnInit() {
     const route = this.route.params.subscribe((params) => {
       this.productId = params['id'];
     });

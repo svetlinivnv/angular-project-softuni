@@ -1,16 +1,16 @@
 <div class="product-details">
   <div class="product-image">
     <img
-      [src]="productDetails.imageUrl || 'https://via.placeholder.com/400'"
+      [src]="productDetails?.imageUrl || 'https://via.placeholder.com/400'"
       alt="Product name"
     />
   </div>
   <div class="product-info">
-    <h1>{{ productDetails.name }}</h1>
+    <h1>{{ productDetails?.name }}</h1>
     <p class="product-description">
-      {{ productDetails.description }}
+      {{ productDetails?.description }}
     </p>
-    <p class="product-price">Price: {{ productDetails.price }} lv.</p>
+    <p class="product-price">Price: {{ productDetails?.price }} lv.</p>
     <div class="quantity-selector"></div>
     <button class="add-to-cart-btn" (click)="addToCart(productId)">
       Add to cart

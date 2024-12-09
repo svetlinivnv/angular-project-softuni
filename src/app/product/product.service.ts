@@ -11,6 +11,7 @@ import {
   query,
   setDoc,
 } from '@angular/fire/firestore';
+import { ProductInterface } from '../types/interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -38,15 +39,15 @@ export class ProductService {
   product = {};
   products: any[] = [];
 
-  async getDetails(productId: string | null): Promise<any> {
+  async getDetails(productId: string | null) {
     if (!productId) {
       return;
     }
     const docSnap = await getDoc(doc(this.firestore, `products/${productId}`));
-    return docSnap.data();
+    return docSnap.data() as ProductInterface;
   }
 
-  async addToCart(productId: string | null): Promise<any> {
+  async addToCart(productId: string | null) {
     if (!productId) {
       return;
     }
