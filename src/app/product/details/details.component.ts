@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductInterface } from '../../types/interfaces';
-import { DocumentData } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-details',
