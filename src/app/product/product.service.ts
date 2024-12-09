@@ -112,6 +112,14 @@ export class ProductService {
     }
   }
 
+  async updateProduct(
+    productId: string,
+    updatedData: Partial<ProductInterface>
+  ) {
+    const productRef = doc(this.firestore, 'products', productId);
+    await setDoc(productRef, updatedData, { merge: true });
+  }
+
   async deleteProduct(id: string) {
     await deleteDoc(doc(this.firestore, 'products', id));
   }

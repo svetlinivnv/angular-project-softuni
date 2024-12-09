@@ -36,6 +36,10 @@ export class CatalogComponent implements OnInit {
     this.router.navigate(['cart']);
   }
 
+  editProduct(productId: string) {
+    this.router.navigate(['edit-product', productId]);
+  }
+
   async deleteProduct(id: string) {
     const confirmed = window.confirm(
       'Are you sure you want to delete this product?'

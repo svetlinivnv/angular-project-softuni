@@ -85,6 +85,19 @@ h3:hover {
   transform: scale(1.1);
 }
 
+.edit {
+  position: absolute;
+  font-size: 25px;
+  right: 35px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.edit:hover {
+  color: #007bff;
+  transform: scale(1.1);
+}
+
 @media (max-width: 768px) {
   .product-card {
     width: calc(50% - 20px);
