@@ -80,3 +80,9 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.product-image-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

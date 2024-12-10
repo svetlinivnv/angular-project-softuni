@@ -29,6 +29,7 @@
     <div class="form-group">
       <label for="description">Description</label>
       <textarea
+        rows="12"
         id="description"
         name="description"
         class="form-control"
@@ -44,10 +45,19 @@
         name="imageUrl"
         class="form-control"
         [(ngModel)]="product.imageUrl"
+        #imageUrlInput
         required
       />
     </div>
-
+    @if (product.imageUrl) {
+    <div class="product-image-preview">
+      <img
+        src="{{ imageUrlInput.value || 'https://via.placeholder.com/400' }}"
+        alt="Product image"
+        style="width: 400px; height: 400px; object-fit: contain"
+      />
+    </div>
+    }
     <button type="submit" class="btn btn-primary">Save</button>
   </form>
 </div>

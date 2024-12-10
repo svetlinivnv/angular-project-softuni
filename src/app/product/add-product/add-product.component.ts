@@ -27,6 +27,7 @@ export class AddProductComponent {
     price: 0,
     imageUrl: '',
     createdBy: JSON.parse(this.user || '').uid,
+    ownerName: JSON.parse(this.user || '').username,
     productId: '',
     createdAt: Timestamp.now(),
   };

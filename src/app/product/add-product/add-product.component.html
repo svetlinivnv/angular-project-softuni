@@ -24,7 +24,7 @@
       id="productDescription"
       name="productDescription"
       placeholder="Enter description"
-      rows="4"
+      rows="8"
       ngModel
       #inputProductDescription="ngModel"
       minlength="10"
@@ -64,7 +64,15 @@
       #imageUrlInput="ngModel"
       required
     />
-    @if (imageUrlInput.touched && imageUrlInput.errors?.['required']) {
+    @if (imageUrlInput.value) {
+    <div class="product-image-preview">
+      <img
+        src="{{ imageUrlInput.value || 'https://via.placeholder.com/400' }}"
+        alt="Product image"
+        style="width: 400px; height: 400px; object-fit: contain"
+      />
+    </div>
+    } @if (imageUrlInput.touched && imageUrlInput.errors?.['required']) {
     <p class="error">Product image URL is required!</p>
     }
 

@@ -1,6 +1,6 @@
 .toast {
   position: fixed;
-  bottom: 80px;
+  bottom: 38px;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;

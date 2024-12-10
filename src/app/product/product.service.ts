@@ -77,8 +77,10 @@ export class ProductService {
 
   async getProducts(userId: string | null) {
     try {
-      const docSnap = await getDocs(collection(this.firestore, 'products'));
-      const products = docSnap.docs.map((doc) => {
+      const productsRef = collection(this.firestore, 'products');
+      const q = query(productsRef, orderBy('createdAt', 'desc'));
+      const querySnapshot = await getDocs(q);
+      const products = querySnapshot.docs.map((doc) => {
         let isOwn = false;
         if (doc.data()['createdBy'] === userId) {
           isOwn = true;
