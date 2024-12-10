@@ -3,8 +3,6 @@ import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './user/register/register.component';
 import { CatalogComponent } from './product/catalog/catalog.component';
-import { CartComponent } from './user/cart/cart.component';
-import { ProfileComponent } from './user/profile/profile.component';
 import { DetailsComponent } from './product/details/details.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { AuthGuard } from './guards/auth.guard';
@@ -17,6 +15,14 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./product/add-product/add-product.component').then(
         (c) => c.AddProductComponent
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-product/:id',
+    loadComponent: () =>
+      import('./product/edit-product/edit-product.component').then(
+        (c) => c.EditProductComponent
       ),
     canActivate: [AuthGuard],
   },

@@ -5,7 +5,7 @@ export interface ProductInterface {
   description: string;
   price: number;
   imageUrl: string;
-  createdBy: string;
+  createdBy?: string;
   productId: string;
   createdAt?: Timestamp;
 }
