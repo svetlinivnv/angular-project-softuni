@@ -9,12 +9,11 @@ Shopify app is an application that allows authorized users to create new product
 
 ## Public part
 * Unauthorized user
-  * User has access to Home page.
+  * User has access to Home page - lists 5 most recently added products..
   * User has access to Register page.
   * User has access to Login page.
   * User has access to Catalog page (with no edit/delete functionalities, which are ownerbound).
   * User has access to product Details page.
-  * Home page lists 5 most recently added products.
   
 ## Private part
 * Authorized user
