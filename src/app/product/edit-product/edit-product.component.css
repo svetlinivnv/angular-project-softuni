@@ -1,7 +1,6 @@
 .edit-product-container {
   max-width: 600px;
   margin: 100px auto;
-
   padding: 1.5rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -85,4 +84,12 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 300px;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .edit-product-container {
+    max-width: 350px;
+  }
 }

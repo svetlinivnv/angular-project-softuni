@@ -6,7 +6,7 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  max-width: 350px;
   margin: 120px auto;
 }
 
@@ -52,7 +52,7 @@ input[type="file"] {
   background-color: rgb(223, 217, 217);
   border-radius: 50%;
   display: flex;
-  width: 45%;
+  width: 50%;
   margin: 20px auto;
 }
 

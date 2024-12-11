@@ -12,6 +12,12 @@ import { UserService } from '../../user/user.service';
 export class HeaderComponent {
   constructor(private userService: UserService, private router: Router) {}
 
+  menuOpen: boolean = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
   get isLoggedIn(): boolean {
     return this.userService.getSession();
   }

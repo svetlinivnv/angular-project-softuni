@@ -2,18 +2,35 @@
   <div class="logo">
     <a routerLink="home"><span>SHOP</span>IFY</a>
   </div>
-  <nav>
+  <div class="menu-toggle" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav [class.active]="menuOpen">
     <ul>
       <a class="nav-link" routerLink="/home"><li>Home</li></a>
-      <a class="nav-link" routerLink="/catalog"><li>Catalog</li></a>
+      <a class="nav-link" routerLink="/catalog" (click)="toggleMenu()"
+        ><li>Catalog</li></a
+      >
       @if (!isLoggedIn) {
-      <a class="nav-link" routerLink="/login"><li>Login</li></a>
-      <a class="nav-link" routerLink="/register"><li>Register</li></a>
+      <a class="nav-link" routerLink="/login" (click)="toggleMenu()"
+        ><li>Login</li></a
+      >
+      <a class="nav-link" routerLink="/register" (click)="toggleMenu()"
+        ><li>Register</li></a
+      >
       } @if (isLoggedIn) {
-      <a class="nav-link" routerLink="/add-product"><li>Add product</li></a>
-      <a class="nav-link" routerLink="/profile"><li>Profile</li></a>
-      <a class="nav-link" (click)="logout()"><li>Logout</li></a>
-      <a routerLink="/cart" class="cart-link">
+      <a class="nav-link" routerLink="/add-product" (click)="toggleMenu()"
+        ><li>Add product</li></a
+      >
+      <a class="nav-link" routerLink="/profile" (click)="toggleMenu()"
+        ><li>Profile</li></a
+      >
+      <a class="nav-link" (click)="logout()" (click)="toggleMenu()"
+        ><li>Logout</li></a
+      >
+      <a routerLink="/cart" class="cart-link" (click)="toggleMenu()">
         <div class="shopping-cart">
           <i class="fa-solid fa-cart-shopping"></i>
         </div>

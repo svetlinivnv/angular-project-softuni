@@ -86,3 +86,11 @@ a {
 .product button:hover {
   background-color: #004bff;
 }
+
+@media (max-width: 768px) {
+  .featured-products {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80px;
+  }
+}
