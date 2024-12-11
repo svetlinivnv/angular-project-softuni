@@ -2,7 +2,7 @@
 
 Project is hosted at: https://svetlinexam.netlify.app/
 
-*Implements Cloud Firestore SDK as BAAS
+Implements Cloud Firestore SDK as BAAS
 
 ## Idea
 Shopify app is an application that allows authorized users to create new products. Unauthorized user could add products to their shopping cart. Authorized users can create, edit and delete their owned products.
