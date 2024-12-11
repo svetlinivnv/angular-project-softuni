@@ -2,8 +2,8 @@
 <div class="toast">
   <p>{{ message }}</p>
 </div>
-} @if (errorCode === 'success') {
+} @if (message && errorCode === 'success') {
 <div class="toast success">
-  <p>Profile successfully updated!</p>
+  <p>{{ message }}</p>
 </div>
 }

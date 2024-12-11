@@ -13,10 +13,10 @@ export class ToastComponent implements OnChanges {
   @Input() duration: number = 3000;
 
   ngOnChanges() {
-    if (this.errorCode) {
+    if (this.errorCode && this.errorCode !== 'success') {
       this.message = this.mapErrorCodeToMessage(this.errorCode);
     } else if (this.errorCode === 'success') {
-      this.message = 'Profile successfully updated!';
+      this.message = 'Successfully updated!';
     }
 
     setTimeout(() => {

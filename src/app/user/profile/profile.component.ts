@@ -25,6 +25,7 @@ export class ProfileComponent {
   updateProfile(form: NgForm) {
     this.newPassword = form.value.password;
     this.confirmPassword = form.value.confirmPassword;
+    this.errorCode = null;
 
     if (this.newPassword !== this.confirmPassword) {
       this.errorCode = 'Confirm password does not match password!';
@@ -41,7 +42,12 @@ export class ProfileComponent {
     this.userService.updateUser(updatedUser).subscribe({
       next: (response) => {
         this.errorCode = 'success';
-        this.router.navigate(['/profile']);
+        if (this.newPassword) {
+          this.userService.logout();
+          this.router.navigate(['login']);
+        } else {
+          this.router.navigate(['profile']);
+        }
       },
       error: (err) => {
         this.errorCode = null;
