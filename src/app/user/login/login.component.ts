@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../user.service';
 import { ToastComponent } from '../../shared/toast/toast.component';
@@ -13,7 +13,11 @@ import { EmailDirective } from '../../directives/email.directive';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {
+    if (this.userService.getSession()) {
+      this.router.navigate(['/404']);
+    }
+  }
 
   errorCode: string | null = null;
 

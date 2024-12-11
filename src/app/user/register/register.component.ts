@@ -13,7 +13,11 @@ import { EmailDirective } from '../../directives/email.directive';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) {
+    if (this.userService.getSession()) {
+      this.router.navigate(['/404']);
+    }
+  }
 
   errorCode: string | null = null;
 
